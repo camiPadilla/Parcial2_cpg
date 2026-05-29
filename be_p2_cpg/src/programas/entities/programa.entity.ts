@@ -1,10 +1,17 @@
 import { NivelesAcademico } from "src/niveles_academicos/entities/niveles_academico.entity";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn,  ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 export enum EstadoPrograma {
     EN_PLANIFICACION = 'En Planificación',
     EN_CURSO = 'En Curso',
     FINALIZADO = 'Finalizado'
 }
+export enum AreaConocimiento{
+    DERECHO = 'Derecho',
+    EDUCACION = 'Educación',
+    INGENIERIA = 'Ingeniería',
+    SALUD = 'Salud'
+}
+
 @Entity('programas')
 export class Programa {
     @PrimaryGeneratedColumn('identity')
@@ -33,6 +40,9 @@ export class Programa {
 
     @Column({type: "enum", enum: EstadoPrograma})
     estado: EstadoPrograma;
+
+    @Column({type: 'enum',enum: AreaConocimiento,default: AreaConocimiento.INGENIERIA,})
+    area_conocimiento: AreaConocimiento;
 
     @CreateDateColumn({ name: 'fecha_creacion' })
     fechaCreacion: Date;

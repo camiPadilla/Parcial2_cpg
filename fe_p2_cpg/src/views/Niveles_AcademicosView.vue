@@ -29,7 +29,7 @@ function handleGuardarNivelAcademico(){
     <h1>Niveles Académicos</h1>
     <div class="grid">
     <Button label="Crear nivel academico" icon = "pi pi-plus" @click="handleCreateNivelAcademico"/>
-    <NivelesAcademicosList ref="niveles_academicosList" @edit="handleEditNivelAcademico" />
+    <NivelesAcademicosList ref="niveles_academicosListRef" @edit="handleEditNivelAcademico" />
     <NivelesAcademicosSave
       :mostrar="mostrarDialogo"
       :nivelAcademico="nivelAcademicoEditar"

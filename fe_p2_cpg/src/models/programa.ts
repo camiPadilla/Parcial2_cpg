@@ -8,5 +8,6 @@ export interface Programa {
   costo: number; 
   fecha_inicio: Date; 
   estado: 'En Planificación' | 'En Curso' | 'Finalizado';
+  area_conocimiento: 'Derecho' | 'Educación' | 'Ingeniería' | 'Salud';
   nivelAcademico:{ nombre: string ,id: number}; 
 }

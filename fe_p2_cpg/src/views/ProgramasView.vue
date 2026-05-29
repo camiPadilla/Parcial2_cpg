@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ProgramaList from '@/components/Programa/ProgramaList.vue'
+import ProgramasSave from '@/components/Programa/ProgramasSave.vue'
 import { Button } from 'primevue';
 import { ref } from 'vue'
 
@@ -29,6 +30,13 @@ function handleGuardarPrograma(){
     <div class="grid">
     <Button label="Crear Programa" icon = "pi pi-plus" @click="handleCreatePrograma"/>
     <ProgramaList ref="programaList" @edit="handleEditPrograma" />
+    <ProgramasSave
+        :mostrar="mostrarDialogo"
+        :programa="programaEditar"
+        :modoEdicion="!!programaEditar"
+        @close="handleCloseDialogo"
+        @guardar="handleGuardarPrograma"
+        />
     </div>
   </div>
   

@@ -39,6 +39,7 @@ import http from '@/plugins/axios';
                 <th>Costo</th>
                 <th>Fecha inicio</th>
                 <th>Estado</th>
+                <th>Área de conocimiento</th>
             </tr>
         </thead>
         <tbody>
@@ -52,6 +53,7 @@ import http from '@/plugins/axios';
                 <td>{{ programa.costo }}</td>
                 <td>{{ programa.fecha_inicio }}</td>
                 <td>{{ programa.estado }}</td>
+                <td>{{ programa.area_conocimiento }}</td>
                 <td>
                     <button icon="pi pi-pencil" aria-label="Editar" text @click="emitirEdicion(programa)"></button>
                     <button icon="pi pi-trash" aria-label="Eliminar" text @click="eliminar(programa.id)"></button>

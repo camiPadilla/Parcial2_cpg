@@ -1,5 +1,4 @@
-import { isNoSubstitutionTemplateLiteral } from "typescript";
-import { EstadoPrograma } from "../entities/programa.entity";
+import { AreaConocimiento, EstadoPrograma } from "../entities/programa.entity";
 import { ApiProperty } from "node_modules/@nestjs/swagger/dist/decorators/api-property.decorator";
 import { IsNotEmpty, IsInt,IsString, MaxLength } from 'class-validator';
 import { Transform } from 'class-transformer';
@@ -47,4 +46,8 @@ export class CreateProgramaDto {
     @ApiProperty()
     @IsNotEmpty({ message: 'El estado es obligatorio' })
     readonly estado: EstadoPrograma;
+
+    @ApiProperty()
+    @IsNotEmpty({message: 'Area de conocimiento es obligatorio'})
+    readonly area_conocimiento: AreaConocimiento;
 }

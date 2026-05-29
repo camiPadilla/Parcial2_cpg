@@ -44,6 +44,12 @@ const estados = [
   { id: 'En Curso', nombre: 'En Curso' },
   { id: 'Finalizado', nombre: 'Finalizado' }
 ]
+const areasConocimiento = [
+  { id: 'Derecho', nombre: 'Derecho' },
+  { id: 'Educacion', nombre: 'Educación' },
+  { id: 'Ingenieria', nombre: 'Ingeniería' },
+  { id: 'Salud', nombre: 'Salud' }
+]
 const estadoSeleccionado = ref(null)
 
 async function obtenerLista(){
@@ -88,7 +94,7 @@ async function handleSave(){
         optionLabel="nombre"
         optionValue="id"
         placeholder="Seleccione un nivel"
-    class="w-full"/>
+        class="w-full"/>
         </div>
         <div class="flex items-center gap-4 mb-4">
         <label for="nombre" class="font-semibold">Nombre:</label>
@@ -152,7 +158,7 @@ async function handleSave(){
             class="flex-auto"
             autocomplete="off"/>
         </div>
-             <div class="flex items-center gap-4 mb-4">
+        <div class="flex items-center gap-4 mb-4">
         <Select
         v-model="estadoSeleccionado"
         :options="estados"
@@ -162,6 +168,30 @@ async function handleSave(){
         class="w-full"
         />
         </div>
+        
+        <div class = "flex items-center gap-4 mb-4">
+        <label for="area_conocimiento" class="font-semibold">Área de conocimiento:</label>
+        <Select
+            id="area_conocimiento"
+            v-model="programa.area_conocimiento"
+            :options="areasConocimiento"
+            optionLabel="nombre"
+            optionValue="id"
+            placeholder="Seleccione un área"
+            class="w-full"
+        />
+        </div>
+        <div class="flex items-center gap-4 mb-4">
+        <Select
+        v-model="estadoSeleccionado"
+        :options="estados"
+        optionLabel="nombre"
+        optionValue="id"
+        placeholder="Seleccione estado"
+        class="w-full"
+        />
+        </div>
+
         <div class="flex justify-end gap-2">
         <Button
           type="button"
